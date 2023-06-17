@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  template: '<div> <input [(ngModel)]="username" placeholder="Nombre de usuario" /><input [(ngModel)]="password" type="password" placeholder="Contraseña" /> <button (click)="login()">Iniciar sesión</button></div>',
+  templateUrl:'./modulo-login.component.html',
+  styleUrls: ['./modulo-login.component.css']
 })
 export class ModuloLogin {
   username: string = '';

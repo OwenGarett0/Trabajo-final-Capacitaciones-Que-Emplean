@@ -1,3 +1,17 @@
-# asd
-Proyecto final del programa "Capacitaciones que emplean" sobre la programación y el desarrollo Full Stack.
-ujh
+Proyecto final "Capacitaciones que Emplean, desarrollo FullStack"
+
+Miembros del grupo:
+
+Owen Andrés Garetto
+Francisco Nardelli Castroviejo
+María Virginia Ayala Cisneros
+Carlos Lautaro Lazarte
+Nicolás Guillot
+
+División de tareas:
+Para la realización del sitio web separamos el proyecto en 4 divisiones:
+	
+	-HTML, conformada por Carlos L. Lazarte y Nicolás Guillot, división encargada de estructurar el sitio
+	-CSS, conformada por M. Virginia Ayala Cisneros, división encargada del apartado visual del sitio
+	-DB, conformada por Owen A. Garetto, división encargada del desarrollo de la base de datos SQL y su conexión con el Backend
+	-Backend, conformada por Francisco Nardelli Castroviejo, división encargada de la funcionalidad del sitio y su conexión con la base de datos.

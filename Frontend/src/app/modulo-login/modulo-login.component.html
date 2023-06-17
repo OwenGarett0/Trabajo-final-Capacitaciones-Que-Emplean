@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>registro de crimenes</title>
+  <link rel="stylesheet" href="estilo.css">
+
+</head>
+<body>
+  <div class="color">
+    <center><h1>Incio de sesión</h1></center>
+    <h3>Ingrese su nombre</h3>
+    <input [(ngModel)]="username" placeholder="Nombre de usuario" />
+    <h3>Ingrese su contraseña</h3>
+    <input [(ngModel)]="password" type="password" placeholder="Contraseña" />
+    <button (click)="login()">Iniciar sesiòn</button>
+    <h4>¿No tienes cuenta?    ¿Olvidaste tu contraseña?</h4>
+    <button>Crear cuenta</button>
+    <button>Recuperar contraseña</button>
+  </div>
+</body>
+</html>
+

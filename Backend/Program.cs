@@ -1,4 +1,4 @@
-var builder = WebApplication.CreateBuilder(args);
+﻿var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
@@ -8,6 +8,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseCors(builder =>
+{
+    builder
+       .WithOrigins("http://localhost:4200", "https://localhost:4200")
+       .SetIsOriginAllowedToAllowWildcardSubdomains()
+       .AllowAnyHeader()
+       .AllowCredentials()
+       .WithMethods("GET", "PUT", "POST", "DELETE", "OPTIONS")
+       .SetPreflightMaxAge(TimeSpan.FromSeconds(3600));
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

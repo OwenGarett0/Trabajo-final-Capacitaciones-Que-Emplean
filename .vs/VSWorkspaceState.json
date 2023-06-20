@@ -1,8 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\backendc#"
+    "\\Backend",
+    "\\Backend\\Controllers",
+    "\\Base de Datos",
+    "\\Frontend\\src",
+    "\\Frontend\\src\\app",
+    "\\Frontend\\src\\app\\modulo-foro",
+    "\\Frontend\\src\\app\\modulo-info",
+    "\\Frontend\\src\\app\\modulo-inicio",
+    "\\Frontend\\src\\app\\modulo-login"
   ],
-  "SelectedNode": "\\backendc#\\main.cs",
+  "SelectedNode": "\\Backend",
   "PreviewInSolutionExplorer": false
 }

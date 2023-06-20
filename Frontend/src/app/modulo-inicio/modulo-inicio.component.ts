@@ -11,4 +11,17 @@ export class ModuloInicio {
   goToLogin() {
     this.router.navigate(['/login']);
   }
+  goToRegister() {
+    this.router.navigate(['/register']);
+  }
+  goToInfo() {
+    this.router.navigate(['/info'])
+  }
+  goToForum() {
+    this.router.navigate(['/forum'])
+  }
+  goToStats() {
+    this.router.navigate(['/stats'])
+  }
+  
 }

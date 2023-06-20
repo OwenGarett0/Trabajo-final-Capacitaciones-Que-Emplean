@@ -7,6 +7,9 @@ import { ModuloLogin } from './modulo-login/modulo-login.component';
 import { ModuloRegistro } from './modulo-registro/modulo-registro.component';
 import { FormsModule } from '@angular/forms';
 import { ModuloInicio } from './modulo-inicio/modulo-inicio.component';
+import { ModuloInfo } from './modulo-info/modulo-info.component';
+import { ModuloForo } from './modulo-foro/modulo-foro.component';
+import { ModuloEstadistica } from './modulo-estadistica/modulo-estadistica.component';
 
 
 @NgModule({
@@ -14,7 +17,10 @@ import { ModuloInicio } from './modulo-inicio/modulo-inicio.component';
     AppComponent,
     ModuloLogin,
     ModuloRegistro,
-    ModuloInicio
+    ModuloInicio,
+    ModuloInfo,
+    ModuloForo,
+    ModuloEstadistica
   ],
   imports: [
     HttpClientModule,   

@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.angular",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\modulo-inicio",
+    "\\src\\app\\modulo-login",
+    "\\src\\app\\modulo-registro"
+  ],
+  "SelectedNode": "\\src\\proxy.conf.json",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,38 +1,43 @@
-using Backend;
+﻿using Dapper;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using MySql.Data.MySqlClient;
+using System.Threading.Tasks;
 
-[ApiController]
-[Route("api/auth")]
-public class AuthController : ControllerBase
+namespace Backend
 {
-    private readonly MySqlConnection _connection;
-
-    public AuthController(IConfiguration configuration)
+    [ApiController]
+    [Route("api/auth")]
+    public class ComprobarUsuario: ControllerBase
     {
-        _connection = new MySqlConnection(configuration.GetConnectionString("DefaultConnection"));
-    }
+        private readonly MySqlConnection _connection;
 
-    // Endpoint para registrar un nuevo usuario
-    [HttpPost("registrar")]
-    public async Task<IActionResult> Register(Usuarios user)
-    {
-        var insertQuery = "INSERT INTO Users (Username, Password, Email) VALUES (@Username, @Password, @Email)";
-        await _connection.ExecuteAsync(insertQuery, user);
-        return Ok();
-    }
-
-    // Endpoint para autenticar a un usuario existente
-    [HttpPost("loguear")]
-    public async Task<IActionResult> Login(Usuarios user)
-    {
-        var selectQuery = "SELECT * FROM Users WHERE Username = @Username AND Password = @Password";
-        var existingUser = await _connection.QuerySingleOrDefaultAsync< Usuarios>(selectQuery, user);
-
-        if (existingUser == null)
+        public ComprobarUsuario(IConfiguration configuration)
         {
-            return Unauthorized();
+            string connectionString = "server=localhost;database=tfcqe;uid=root;password=asddsa;";
+            _connection = new MySqlConnection(connectionString);
         }
 
-        return Ok(existingUser);
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(Usuarios usuarios)
+        {
+            var insertQuery = "INSERT INTO usuarios (usuarios, pass, correo) VALUES (@usuarios, @pass, @email)";
+            await _connection.ExecuteAsync(insertQuery, usuarios);
+            return Ok();
+        }
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(Usuarios usuarios)
+        {
+            var selectQuery = "SELECT * FROM usuarios WHERE usuarios = @usuarios AND pass = @pass";
+            var existingUser = await _connection.QueryFirstOrDefaultAsync<Usuarios>(selectQuery, usuarios);
+
+            if (existingUser == null)
+            {
+                return Unauthorized();
+            }
+
+            return Ok(existingUser);
+        }
     }
 }

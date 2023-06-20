@@ -1,13 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.angular",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\modulo-inicio",
-    "\\src\\app\\modulo-login",
-    "\\src\\app\\modulo-registro"
+    "\\src\\app\\modulo-foro",
+    "\\src\\app\\modulo-foro\\modulo-hilo",
+    "\\src\\app\\modulo-foro\\modulo-lista-hilos"
   ],
-  "SelectedNode": "\\src\\proxy.conf.json",
+  "SelectedNode": "\\src\\app\\modulo-foro\\modulo-lista-hilos\\modulo-lista-hilos.component.ts",
   "PreviewInSolutionExplorer": false
 }

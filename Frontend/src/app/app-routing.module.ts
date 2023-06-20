@@ -5,8 +5,8 @@ import { ModuloRegistro } from './modulo-registro/modulo-registro.component';
 import { ModuloLogin } from './modulo-login/modulo-login.component';
 import { ModuloInicio } from './modulo-inicio/modulo-inicio.component';
 import { ModuloInfo } from './modulo-info/modulo-info.component';
-import { ModuloForo } from './modulo-foro/modulo-foro.component';
 import { ModuloEstadistica } from './modulo-estadistica/modulo-estadistica.component';
+import { ModuloForo } from './modulo-foro/modulo-foro.component'; import { ModuloHilo } from './modulo-foro/modulo-hilo/modulo-hilo.component'; import { ModuloListaHilos } from './modulo-foro/modulo-lista-hilos/modulo-lista-hilos.component';
 
 import { AuthGuard } from './auth-guard.guard';
 
@@ -15,8 +15,12 @@ const routes: Routes = [
   { path: 'login', component: ModuloLogin},
   { path: 'register', component: ModuloRegistro },
   { path: 'info', component: ModuloInfo, canActivate: [AuthGuard] },
-  { path: 'forum', component: ModuloForo, canActivate: [AuthGuard] },
+  {
+    path: 'forum', component: ModuloForo, canActivate: [AuthGuard], children:[
+      { path: '', component: ModuloListaHilos }, {path: 'hilo/:id', component: ModuloHilo}
+  ]},
   { path: 'stats', component: ModuloEstadistica, canActivate: [AuthGuard] }
+
   
   ];
 

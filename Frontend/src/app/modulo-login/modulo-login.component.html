@@ -14,7 +14,8 @@
     <input [(ngModel)]="user" placeholder="Nombre de usuario" />
     <h3>Ingrese su contraseña</h3>
     <input [(ngModel)]="pass" type="password" placeholder="Contraseña" />
-    <button (click)="login()">Iniciar sesiòn</button>
+    <button (click)="login()">Iniciar sesión</button>
+    <div *ngIf="loginFail">Autenticación fallida</div>
     <h4>¿No tienes cuenta?    ¿Olvidaste tu contraseña?</h4>
     <button>Crear cuenta</button>
     <button>Recuperar contraseña</button>

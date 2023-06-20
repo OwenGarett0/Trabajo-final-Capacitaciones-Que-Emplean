@@ -20,17 +20,17 @@ namespace Backend
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register(Usuarios usuarios)
+        public async Task<IActionResult> Register(Register user)
         {
-            var insertQuery = "INSERT INTO usuarios (usuarios, pass, correo) VALUES (@usuarios, @pass, @email)";
-            await _connection.ExecuteAsync(insertQuery, usuarios);
+            var insertQuery = "INSERT INTO usuarios (usuarios, pass, correo) VALUES (@user, @pass, @email)";
+            await _connection.ExecuteAsync(insertQuery, user);
             return Ok();
         }
         [HttpPost("login")]
-        public async Task<IActionResult> Login(Usuarios usuarios)
+        public async Task<IActionResult> Login(Login user)
         {
-            var selectQuery = "SELECT * FROM usuarios WHERE usuarios = @usuarios AND pass = @pass";
-            var existingUser = await _connection.QueryFirstOrDefaultAsync<Usuarios>(selectQuery, usuarios);
+            var selectQuery = "SELECT * FROM usuarios WHERE usuarios = @user AND pass = @pass";
+            var existingUser = await _connection.QueryFirstOrDefaultAsync<Login>(selectQuery, user);
 
             if (existingUser == null)
             {

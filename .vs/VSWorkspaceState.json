@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Backend",
     "\\Backend\\Controllers",
-    "\\Base de Datos",
+    "\\Frontend",
     "\\Frontend\\src",
     "\\Frontend\\src\\app",
     "\\Frontend\\src\\app\\modulo-foro",
     "\\Frontend\\src\\app\\modulo-info",
     "\\Frontend\\src\\app\\modulo-inicio",
-    "\\Frontend\\src\\app\\modulo-login"
+    "\\Frontend\\src\\app\\modulo-login",
+    "\\Frontend\\src\\app\\modulo-registro"
   ],
-  "SelectedNode": "\\Backend",
+  "SelectedNode": "\\Frontend\\src\\app\\modulo-registro\\modulo-registro.component.ts",
   "PreviewInSolutionExplorer": false
 }

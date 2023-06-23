@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>Cambio de contraseña</title>
+  <script>
+    function validarFormulario() {
+      var contraseñaActual = document.getElementById("contraseña-actual").value;
+      var nuevaContraseña = document.getElementById("nueva-contraseña").value;
+      var confirmarContraseña = document.getElementById("confirmar-contraseña").value;
+      
+      if (contraseñaActual.trim() === "" || nuevaContraseña.trim() === "" || confirmarContraseña.trim() === "") {
+        alert("Por favor, completa todos los campos.");
+        return false;
+      }
+      
+      if (nuevaContraseña !== confirmarContraseña) {
+        alert("Las contraseñas no coinciden.");
+        return false;
+      }
+      
+      // Aquí puedes agregar tu código para enviar el formulario al servidor
+      
+      alert("¡Cambio de contraseña exitoso!");
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <h2>Cambio de contraseña</h2>
+  
+  <form onsubmit="return validarFormulario()">
+    <label for="contraseña-actual">Contraseña actual:</label>
+    <input type="password" id="contraseña-actual" name="contraseña-actual"><br><br>
+    
+    <label for="nueva-contraseña">Nueva contraseña:</label>
+    <input type="password" id="nueva-contraseña" name="nueva-contraseña"><br><br>
+    
+    <label for="confirmar-contraseña">Confirmar contraseña:</label>
+    <input type="password" id="confirmar-contraseña" name="confirmar-contraseña"><br><br>
+    
+    <input type="submit" value="Cambiar contraseña">
+  </form>
+</body>
+</html>
+
+    
+</body>
+</html>

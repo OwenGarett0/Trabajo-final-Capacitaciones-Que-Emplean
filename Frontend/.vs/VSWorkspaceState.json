@@ -5,8 +5,9 @@
     "\\src\\app",
     "\\src\\app\\modulo-foro",
     "\\src\\app\\modulo-foro\\modulo-hilo",
-    "\\src\\app\\modulo-foro\\modulo-lista-hilos"
+    "\\src\\app\\modulo-foro\\modulo-lista-hilos",
+    "\\src\\app\\modulo-foro\\new-post"
   ],
-  "SelectedNode": "\\src\\app\\modulo-foro\\modulo-lista-hilos\\modulo-lista-hilos.component.ts",
+  "SelectedNode": "\\src\\app\\modulo-foro\\modulo-lista-hilos\\modulo-lista-hilos.component.html",
   "PreviewInSolutionExplorer": false
 }

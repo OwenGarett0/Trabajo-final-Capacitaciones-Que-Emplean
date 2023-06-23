@@ -1,7 +1,6 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Backend\\Controllers",
     "\\Frontend",
     "\\Frontend\\src",
     "\\Frontend\\src\\app",
@@ -11,6 +10,6 @@
     "\\Frontend\\src\\app\\modulo-login",
     "\\Frontend\\src\\app\\modulo-registro"
   ],
-  "SelectedNode": "\\Frontend\\src\\app\\modulo-registro\\modulo-registro.component.ts",
+  "SelectedNode": "\\README.md",
   "PreviewInSolutionExplorer": false
 }

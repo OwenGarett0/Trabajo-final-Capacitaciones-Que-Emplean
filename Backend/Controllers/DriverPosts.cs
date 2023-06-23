@@ -22,7 +22,7 @@ namespace Backend
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPosts()
+        public async Task<IActionResult> GetPosts()//RECIBIR TODOS LOS POST
         {
             try
             {
@@ -60,7 +60,7 @@ namespace Backend
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetThread(int id)
+        public async Task<IActionResult> GetThread(int id)//RECIBIR POST ESPECÍFICO
         {
             try
             {
@@ -98,7 +98,7 @@ namespace Backend
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreatePost(Hilo thread)
+        public async Task<IActionResult> CreatePost(Hilo thread)//CREAR POST
         {
             try
             {
@@ -124,7 +124,7 @@ namespace Backend
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateThread(int id, Hilo updatedThread)
+        public async Task<IActionResult> UpdateThread(int id, Hilo updatedThread)//ACTUALIZAR POST
         {
             try
             {
@@ -155,7 +155,7 @@ namespace Backend
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteThread(int id)
+        public async Task<IActionResult> DeleteThread(int id)//ELIMINAR POST
         {
             try
             {

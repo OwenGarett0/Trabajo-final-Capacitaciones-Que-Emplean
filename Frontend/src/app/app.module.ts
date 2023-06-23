@@ -12,6 +12,7 @@ import { ModuloForo } from './modulo-foro/modulo-foro.component';
 import { ModuloEstadistica } from './modulo-estadistica/modulo-estadistica.component';
 import { ModuloHilo } from './modulo-foro/modulo-hilo/modulo-hilo.component';
 import { ModuloListaHilos } from './modulo-foro/modulo-lista-hilos/modulo-lista-hilos.component';
+import { NewPostComponent } from './modulo-foro/new-post/new-post.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ModuloListaHilos } from './modulo-foro/modulo-lista-hilos/modulo-lista-
     ModuloForo,
     ModuloEstadistica,
     ModuloHilo,
-    ModuloListaHilos
+    ModuloListaHilos,
+    NewPostComponent,
   ],
   imports: [
     HttpClientModule,   

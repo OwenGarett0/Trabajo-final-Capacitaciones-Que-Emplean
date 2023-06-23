@@ -1,1 +1,7 @@
-<p>modulo-lista-hilos works!</p>
+<h1>Lista de Hilos</h1>
+
+<div *ngFor="let thread of threads">
+  <h2>{{ post.title }}</h2>
+  <p>{{ post.description }}</p>
+  <button (click)="deleteThread(thread.id)">Eliminar</button>
+</div>

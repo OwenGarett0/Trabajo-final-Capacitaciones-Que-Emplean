@@ -36,9 +36,9 @@ CREATE TABLE tfcqe.posts (
 -- Dumping data for table `posts`
 --
 
-LOCK TABLES `posts` WRITE;
-/*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-/*!40000 ALTER TABLE `posts` ENABLE KEYS */;
+LOCK TABLES tfcqe.posts WRITE;
+/*!40000 ALTER TABLE tfcqe.`posts` DISABLE KEYS */;
+/*!40000 ALTER TABLE tfcqe.`posts` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -47,7 +47,7 @@ UNLOCK TABLES;
 
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuarios` (
+CREATE TABLE tfcqe.`usuarios` (
   `id` int NOT NULL AUTO_INCREMENT,
   `usuarios` text NOT NULL,
   `pass` text NOT NULL,
@@ -60,10 +60,10 @@ CREATE TABLE `usuarios` (
 -- Dumping data for table `usuarios`
 --
 
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'string','string','string');
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+LOCK TABLES tfcqe.`usuarios` WRITE;
+/*!40000 ALTER TABLE tfcqe.`usuarios` DISABLE KEYS */;
+INSERT INTO tfcqe.`usuarios` VALUES (1,'string','string','string');
+/*!40000 ALTER TABLE tfcqe.`usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

@@ -41,9 +41,8 @@ namespace Backend
                             var thread = new Hilo
                             {
                                 Id = reader.GetInt32("id"),
-                                Title = reader.GetString("title"),
-                                Content = reader.GetString("content"),
-                                Author = reader.GetString("author")
+                                Title = reader.GetString("titulo"),
+                                Content = reader.GetString("contenido"),
                             };
 
                             threads.Add(thread);
@@ -81,7 +80,7 @@ namespace Backend
                                 Id = reader.GetInt32("id"),
                                 Title = reader.GetString("titulo"),
                                 Content = reader.GetString("contenido"),
-                                Author = reader.GetString("autor")
+
                             };
 
                             return Ok(thread);
@@ -106,11 +105,11 @@ namespace Backend
                 {
                     await connection.OpenAsync();
 
-                    var query = "INSERT INTO posts (titulo, contenido, autor) VALUES (@title, @content, @author)";
+                    var query = "INSERT INTO posts (titulo, contenido, idOp) VALUES (@title, @content, @idOp)";
                     var command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@title", thread.Title);
                     command.Parameters.AddWithValue("@content", thread.Content);
-                    command.Parameters.AddWithValue("@author", DateTime.Now);
+                    command.Parameters.AddWithValue("idOp", thread.IdOp);
 
                     await command.ExecuteNonQueryAsync();
 

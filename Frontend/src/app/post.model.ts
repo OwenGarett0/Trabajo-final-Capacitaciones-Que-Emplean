@@ -1,5 +1,5 @@
-export class Post {
-  id: number | undefined;
-  title: string | undefined;
-  content: string | undefined;
+export interface Post {
+  id?: number
+  title: string;
+  content: string;
 }

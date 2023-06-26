@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Post } from '../../post.model';
 import { PostService } from '../../posts.service';
 
@@ -7,8 +7,8 @@ import { PostService } from '../../posts.service';
   templateUrl: './modulo-lista-hilos.component.html',
   styleUrls: ['./modulo-lista-hilos.component.css']
 })
-export class ModuloListaHilos {
-  post: Post[] | undefined;
+export class ModuloListaHilos implements OnInit {
+  post: Post[];
 
   constructor(private postService: PostService) { }
 

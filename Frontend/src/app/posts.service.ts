@@ -7,7 +7,7 @@ import { Post } from './post.model';
   providedIn: 'root'
 })
 export class PostService {
-  private apiUrl = 'http://localhost:7223/api/threads';
+  private apiUrl = 'https://localhost:7223/api/hilos';
 
   constructor(private http: HttpClient) { }
 
@@ -19,9 +19,11 @@ export class PostService {
     const url = `${this.apiUrl}/${postId}`;
     return this.http.get<Post>(url);
   }
-  createPost(thread: Post): Observable<Post> {
+  createPost(title: string, content: string): Observable<Post> {
+    const thread: Post = { title, content };
     return this.http.post<Post>(this.apiUrl, thread);
   }
+
 
   updatePost(id: number, thread: Post): Observable<Post> {
     const url = `${this.apiUrl}/${id}`;

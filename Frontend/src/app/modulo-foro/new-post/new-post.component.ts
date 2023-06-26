@@ -4,22 +4,22 @@ import { Router } from '@angular/router';
 import { Post } from '../../post.model'
 @Component({
   selector: 'app-create-thread',
-  templateUrl: './create-thread.component.html',
-  styleUrls: ['./create-thread.component.css']
+  templateUrl: './new-post.component.html',
+  styleUrls: ['./new-post.component.css']
 })
-export class CreateThreadComponent {
-  post: Post[] = [];
-
+export class NewPost{
+  title: string;
+  content: string;
   constructor(
-    private threadService: PostService,
+    private postService: PostService,
     private router: Router
   ) { }
 
-  createThread(): void {
-    this.threadService.createPost(this.post)
+  createPost(): void {
+    this.postService.createPost(this.title, this.content)
       .subscribe(() => {
         // Realizar alguna acción después de crear el hilo, como redirigir al usuario a la lista de hilos
-        this.router.navigate(['/threads']);
+        this.router.navigate(['/forum/']);
       });
   }
 }

@@ -24,4 +24,14 @@ Instrucciones de instalación:
 
 Clonar el repositorio
 
-Hostear el archivo tfcqe desde MySql
+Hostear la base de datos ("Trabajo-final-Capacitaciones-Que-Emplean\Base de datos\tfcqe.sql") con MySql (puerto predeterminado)
+
+Abrir la solución Backend.sln ("Trabajo-final-Capacitaciones-Que-Emplean\Backend\Backend.sln") con Visual Studio 2022
+
+Ejecutar el Proyecto (F5 en VS22)
+
+Abrir la carpeta Frontend desde una terminal ("Trabajo-final-Capacitaciones-Que-Emplean\Frontend")
+
+Ejecutar el comando "ng serve" (Requiere Node.js)
+
+Abrir en el navegador localhost:4200

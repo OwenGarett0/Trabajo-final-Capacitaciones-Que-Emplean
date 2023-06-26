@@ -9,7 +9,7 @@ import { Post } from '../../post.model';
   styleUrls: ['./modulo-hilo.component.css']
 })
 export class ModuloHilo {
-  post: Post | undefined;
+  post: Post;
 
   constructor(
     private route: ActivatedRoute,

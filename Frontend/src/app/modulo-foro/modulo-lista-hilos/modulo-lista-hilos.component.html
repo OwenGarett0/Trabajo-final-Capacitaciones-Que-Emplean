@@ -1,7 +1,6 @@
 <h1>Lista de Hilos</h1>
 
-<div *ngFor="let thread of threads">
+<div *ngFor="let post of post">
   <h2>{{ post.title }}</h2>
-  <p>{{ post.description }}</p>
-  <button (click)="deleteThread(thread.id)">Eliminar</button>
+  <p>{{ post.content }}</p>
 </div>

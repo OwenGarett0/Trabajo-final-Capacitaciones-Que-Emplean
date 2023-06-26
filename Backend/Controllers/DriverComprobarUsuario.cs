@@ -15,21 +15,21 @@ namespace Backend
 
         public ComprobarUsuario(IConfiguration configuration)
         {
-            string connectionString = "server=localhost;database=tfcqe;uid=root;password=asddsa;";
+            string connectionString = "server=localhost;database=tfcqe;uid=root;password=asddsa;";//Conexión base de datos
             _connection = new MySqlConnection(connectionString);
         }
 
-        [HttpPost("register")]
+        [HttpPost("register")]//Función de registro
         public async Task<IActionResult> Register(Register user)
         {
-            var insertQuery = "INSERT INTO usuarios (usuarios, pass, correo) VALUES (@user, @pass, @email)";
+            var insertQuery = "INSERT INTO usuarios (usuarios, pass, correo) VALUES (@user, @pass, @email)";//Consulta SQL para INGRESAR
             await _connection.ExecuteAsync(insertQuery, user);
             return Ok();
         }
-        [HttpPost("login")]
+        [HttpPost("login")]//Función de login
         public async Task<IActionResult> Login(Login user)
         {
-            var selectQuery = "SELECT * FROM usuarios WHERE usuarios = @user AND pass = @pass";
+            var selectQuery = "SELECT * FROM usuarios WHERE usuarios = @user AND pass = @pass";//Consulta SQL comprobar Usuario y Contraseña
             var existingUser = await _connection.QueryFirstOrDefaultAsync<Login>(selectQuery, user);
 
             if (existingUser == null)

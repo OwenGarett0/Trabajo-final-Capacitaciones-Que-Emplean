@@ -27,4 +27,7 @@ export class ModuloLogin {
       this.loginFail = true;
     });
   }
+  goRegister() {
+    this.router.navigate(['/register'])
+  }
 }

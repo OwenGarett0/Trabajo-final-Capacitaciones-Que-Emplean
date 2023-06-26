@@ -22,7 +22,7 @@ namespace Backend
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPosts()
+        public async Task<IActionResult> GetPosts()//RECIBIR TODOS LOS POST
         {
             try
             {
@@ -41,9 +41,8 @@ namespace Backend
                             var thread = new Hilo
                             {
                                 Id = reader.GetInt32("id"),
-                                Title = reader.GetString("title"),
-                                Content = reader.GetString("content"),
-                                Author = reader.GetString("author")
+                                Title = reader.GetString("titulo"),
+                                Content = reader.GetString("contenido"),
                             };
 
                             threads.Add(thread);
@@ -60,7 +59,7 @@ namespace Backend
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetThread(int id)
+        public async Task<IActionResult> GetThread(int id)//RECIBIR POST ESPECÍFICO
         {
             try
             {
@@ -81,7 +80,7 @@ namespace Backend
                                 Id = reader.GetInt32("id"),
                                 Title = reader.GetString("titulo"),
                                 Content = reader.GetString("contenido"),
-                                Author = reader.GetString("autor")
+
                             };
 
                             return Ok(thread);
@@ -98,7 +97,7 @@ namespace Backend
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreatePost(Hilo thread)
+        public async Task<IActionResult> CreatePost(Hilo thread)//CREAR POST
         {
             try
             {
@@ -106,11 +105,11 @@ namespace Backend
                 {
                     await connection.OpenAsync();
 
-                    var query = "INSERT INTO posts (titulo, contenido, autor) VALUES (@title, @content, @author)";
+                    var query = "INSERT INTO posts (titulo, contenido, idOp) VALUES (@title, @content, @idOp)";
                     var command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@title", thread.Title);
                     command.Parameters.AddWithValue("@content", thread.Content);
-                    command.Parameters.AddWithValue("@author", DateTime.Now);
+                    command.Parameters.AddWithValue("idOp", thread.IdOp);
 
                     await command.ExecuteNonQueryAsync();
 
@@ -124,7 +123,7 @@ namespace Backend
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateThread(int id, Hilo updatedThread)
+        public async Task<IActionResult> UpdateThread(int id, Hilo updatedThread)//ACTUALIZAR POST
         {
             try
             {
@@ -155,7 +154,7 @@ namespace Backend
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteThread(int id)
+        public async Task<IActionResult> DeleteThread(int id)//ELIMINAR POST
         {
             try
             {

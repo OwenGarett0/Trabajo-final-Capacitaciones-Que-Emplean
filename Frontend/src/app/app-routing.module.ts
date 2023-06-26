@@ -9,6 +9,7 @@ import { ModuloEstadistica } from './modulo-estadistica/modulo-estadistica.compo
 import { ModuloForo } from './modulo-foro/modulo-foro.component'; import { ModuloHilo } from './modulo-foro/modulo-hilo/modulo-hilo.component'; import { ModuloListaHilos } from './modulo-foro/modulo-lista-hilos/modulo-lista-hilos.component';
 
 import { AuthGuard } from './auth-guard.guard';
+import { NewPost } from './modulo-foro/new-post/new-post.component';
 
 const routes: Routes = [
   { path: '', component: ModuloInicio},
@@ -16,8 +17,8 @@ const routes: Routes = [
   { path: 'register', component: ModuloRegistro },
   { path: 'info', component: ModuloInfo, canActivate: [AuthGuard] },
   {
-    path: 'forum', component: ModuloForo, canActivate: [AuthGuard], children:[
-      { path: '', component: ModuloListaHilos }, {path: 'hilo/:id', component: ModuloHilo}
+    path: 'forum', component: ModuloForo, children: [
+      { path: 'a', component: ModuloListaHilos }, { path: 'hilo/:id', component: ModuloHilo }, { path: 'create', component: NewPost }
   ]},
   { path: 'stats', component: ModuloEstadistica, canActivate: [AuthGuard] }
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../post.model';
 import { PostService } from '../../posts.service';
+import { Answer } from '../../answer.model'
+import { AnswerService } from '../../answer.service';
 
 @Component({
   selector: 'app-modulo-lista-hilos',
@@ -9,11 +11,16 @@ import { PostService } from '../../posts.service';
 })
 export class ModuloListaHilos implements OnInit {
   post: Post[];
-
-  constructor(private postService: PostService) { }
+  answer: Answer
+  constructor(private postService: PostService, private answerService: AnswerService) { }
 
   ngOnInit(): void {
     this.getThreads();
+    this.getAnswers();
+
+  }
+  getAnswers(): void{
+
   }
 
   getThreads(): void {

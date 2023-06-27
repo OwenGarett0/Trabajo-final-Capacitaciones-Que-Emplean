@@ -4,11 +4,11 @@ Proyecto final "Capacitaciones que Emplean, desarrollo FullStack"
 
 Miembros del grupo:
 
-Owen Andrés Garetto
-Francisco Nardelli Castroviejo
-María Virginia Ayala Cisneros
-Carlos Lautaro Lazarte
-Nicolás Guillot
+Owen Andrés Garetto (cuentas: OwenGarett0/OwenGaretto)
+Francisco Nardelli Castroviejo (cuentas: fraco96/FNCasd)
+María Virginia Ayala Cisneros (cuentas: vir-ayala)
+Carlos Lautaro Lazarte (cuentas: Carloslazarte)
+Nicolás Guillot (cuentas: wQueMirasBobo123)
 
 División de tareas:
 Para la realización del sitio web separamos el proyecto en 2 divisiones:

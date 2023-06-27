@@ -1,7 +1,13 @@
+@font-face {
+    font-family: "fuente";
+    src: url(fuente/OpenSans-VariableFont_wdth,wght.ttf);
+}
+
 body{
     background-color:#4d82bc;
     margin-top: 5%;
     margin-left: 5%;
+    font-family: "fuente";
 }
 .color{
     background-color: #73a1d1;

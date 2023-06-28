@@ -11,7 +11,7 @@ import { AnswerService } from '../../answer.service';
 })
 export class ModuloListaHilos implements OnInit {
   post: Post[];
-  answer: Answer
+  answer: Answer[];
   constructor(private postService: PostService, private answerService: AnswerService) { }
 
   ngOnInit(): void {
@@ -20,7 +20,7 @@ export class ModuloListaHilos implements OnInit {
 
   }
   getAnswers(): void{
-
+    this.answerService.getRespuestas
   }
 
   getThreads(): void {

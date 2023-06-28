@@ -5,45 +5,20 @@
       <title>Registro de cuenta</title>
     </head>
     <body>
+      <br><br><br><br><br>
       <h2>Registro de cuenta</h2>
 
-      <script type="text/javascript">
-        function validarFormulario() {
-          var nombre = document.getElementById("nombre").value;
-          var correo = document.getElementById("correo").value;
-          var contraseña = document.getElementById("contraseña").value;
-          var confirmarContraseña = document.getElementById("confirmar-contraseña").value;
+    <div class="color">
+      <h1>Incio de sesión</h1>
+      <h3>Ingrese su nombre</h3>
+      <input [(ngModel)]="user" placeholder="Nombre de usuario" />
+      <input [(ngModel)]="email" placeholder="Correo electrónico" />
+      <input [(ngModel)]="pass" type="password" placeholder="Contraseña" />
+      <input [(ngModel)]="passcom" type="password" placeholder="Confirmar contraseña" />
+      <button (click)="validarFormulario()">Iniciar sesión</button>
+      <div *ngIf="regerrror">Autenticación fallida</div>
+      <button (click)="goLogin()">Logearse</button>
 
-          if (nombre.trim() === "" || correo.trim() === "" || contraseña.trim() === "" || confirmarContraseña.trim() === "") {
-            alert("Por favor, completa todos los campos.");
-            return false;
-          }
-
-          if (contraseña !== confirmarContraseña) {
-            alert("Las contraseñas no coinciden.");
-            return false;
-          }
-
-          alert("¡Registro exitoso!");
-          return true;
-        }
-      </script>
-
-      <form onsubmit="validarFormulario()">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre"><br><br>
-
-        <label for="correo">Correo electrónico:</label>
-        <input type="email" id="correo" name="correo"><br><br>
-
-        <label for="contraseña">Contraseña:</label>
-        <input type="password" id="contraseña" name="contraseña"><br><br>
-
-        <label for="confirmar-contraseña">Confirmar contraseña:</label>
-        <input type="password" id="confirmar-contraseña" name="confirmar-contraseña"><br><br>
-
-        <input type="submit" value="Registrarse">
-      </form>
-
+  </div>
     </body>
 </html>

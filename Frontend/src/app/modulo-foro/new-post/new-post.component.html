@@ -1,13 +1,16 @@
+<link rel="stylesheet" href="new-post.component.css">
+<center>
 <h1>Crear Post</h1>
 
 <div>
-  <label>Título:</label>
+  <label>Título</label><br>
   <input [(ngModel)]="title" placeholder="Título">
 </div>
 
 <div>
-  <label>Post:</label>
+  <label >Post</label><br>
   <textarea [(ngModel)]="content" placeholder="Contenido"></textarea>
 </div>
 
 <button (click)="createPost()">Crear</button>
+</center>

@@ -4,16 +4,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace Backend
 {
     [ApiController]
     [Route("api/answers")]
-    public class Answers : ControllerBase
+    public class AnswerController : ControllerBase
     {
         private readonly MySqlConnection connection;
 
-        public RespuestasController(IConfiguration configuration)
+        public AnswerController()
         {
             string connectionString = "server=localhost;database=tfcqe;uid=root;password=asddsa;";
             connection = new MySqlConnection(connectionString);
@@ -22,27 +23,28 @@ namespace Backend
         [HttpGet]
         public async Task<IActionResult> GetAnswer(int threadId)
         {
-        try{
-            var query = "SELECT * FROM answers";
-            var command = (query, connection)
-            var threads = new List<Answer>();
-            using (var reader = await command.ExecuteReaderAsync())
+            try
+            {
+                var query = "SELECT * FROM answers";
+                var command = new MySqlCommand(query, connection);
+                var answers = new List<Answer>();
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
                     {
-                        while (await reader.ReadAsync())
+                        var answer = new Answer
                         {
-                            var answer = new Answer
-                            {
-                                Id = reader.GetInt32("id"),
-                                idOp = reader.GetInt32("idOp"),
-                                Answ = reader.GetString("Answ"),
-                            };
+                            id = reader.GetInt32("id"),
+                            idOP = reader.GetInt32("idOp"),
+                            Answ = reader.GetString("Answ"),
+                        };
 
-                            Answers.Add(answer);
-                        }
+                        answers.Add(answer);
                     }
 
-                    return Ok(Answers);
                 }
+
+                return Ok(answers);
             }
             catch (Exception ex)
             {
@@ -51,13 +53,14 @@ namespace Backend
         }
 
         [HttpPost]
-        public async Task<IActionResult>NewAnswer(Respuesta respuesta)
+        public async Task<IActionResult> NewAnswer(Answer respuesta)
         {
             var insertQuery = "INSERT INTO respuestas (threadId, usuarioId, contenido) VALUES (@ThreadId, @UsuarioId, @Contenido)";
-            await _connection.ExecuteAsync(insertQuery, respuesta);
+            await connection.ExecuteAsync(insertQuery, respuesta);
             return Ok();
         }
 
         // Implementa los demás métodos para actualizar y eliminar respuestas
 
+    }
 }

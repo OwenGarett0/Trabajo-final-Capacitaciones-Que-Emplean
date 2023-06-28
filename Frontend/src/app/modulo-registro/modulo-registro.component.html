@@ -1,24 +1,15 @@
 
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title>Registro de cuenta</title>
-    </head>
-    <body>
-      <br><br><br><br><br>
-      <h2>Registro de cuenta</h2>
+      <br><br><br><br><br>  
 
-    <div class="color">
-      <h1>Incio de sesión</h1>
-      <h3>Ingrese su nombre</h3>
-      <input [(ngModel)]="user" placeholder="Nombre de usuario" />
-      <input [(ngModel)]="email" placeholder="Correo electrónico" />
-      <input [(ngModel)]="pass" type="password" placeholder="Contraseña" />
-      <input [(ngModel)]="passcom" type="password" placeholder="Confirmar contraseña" />
-      <button (click)="validarFormulario()">Iniciar sesión</button>
-      <div *ngIf="regerrror">Autenticación fallida</div>
-      <button (click)="goLogin()">Logearse</button>
+                      <div class="color">
+                        <h1>Registro</h1>
+                        <input [(ngModel)]="user" placeholder="Nombre de usuario" /><br>
+                        <input [(ngModel)]="email" placeholder="Correo electrónico" /><br>
+                        <input [(ngModel)]="pass" type="password" placeholder="Contraseña" /><br>
+                        <input [(ngModel)]="passcom" type="password" placeholder="Confirmar contraseña" /><br>
+                        <button (click)="validarFormulario()">Registrarse</button>
+                        <button (click)="goLogin()">Logearse</button>
+                        <div *ngIf="regerror">Registro fallido</div>
 
-  </div>
-    </body>
-</html>
+                      </div>
+

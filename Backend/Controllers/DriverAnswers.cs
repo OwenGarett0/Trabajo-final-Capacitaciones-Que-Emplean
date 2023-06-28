@@ -60,7 +60,5 @@ namespace Backend
             return Ok();
         }
 
-        // Implementa los demás métodos para actualizar y eliminar respuestas
-
     }
 }

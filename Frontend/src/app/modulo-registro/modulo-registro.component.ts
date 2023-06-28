@@ -16,27 +16,33 @@ export class ModuloRegistro {
   constructor(private http: HttpClient, private router: Router) { }
 
   register() {
-    const newUser = { usuarios: this.user, password: this.pass, email: this.email };
-    this.http.post('/api/auth/register', newUser).subscribe(() => this.router.navigate(['/login']));
+    const newUser = { user: this.user, pass: this.pass, email: this.email };
+    this.http.post('https://localhost:7223/api/auth/register', newUser).subscribe(() => this.router.navigate(['/login']));
 
   }
-  validarFormulario(){
+  validarFormulario() {
+    this.regerror = false;
     var nombre = this.user;
     var correo = this.email;
     var contraseña = this.pass;
     var confirmarContraseña = this.passcom;
+   
 
     if (nombre.trim() === "" || correo.trim() === "" || contraseña.trim() === "" || confirmarContraseña.trim() === "") {
         this.regerror = true;
         }
 
-     if (contraseña !== confirmarContraseña) {
+    if (contraseña !== confirmarContraseña) {
         this.regerror = true;
-        }
+    }
+    if (this.regerror === false)
 
 
         this.register();
         }
+  goLogin() {
+    this.router.navigate(['/login'])
+  }
 
   }
 

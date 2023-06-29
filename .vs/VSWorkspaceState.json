@@ -4,12 +4,13 @@
     "\\Frontend",
     "\\Frontend\\src",
     "\\Frontend\\src\\app",
-    "\\Frontend\\src\\app\\modulo-info",
     "\\Frontend\\src\\app\\modulo-inicio",
     "\\Frontend\\src\\app\\modulo-login",
     "\\Frontend\\src\\app\\modulo-registro",
+    "\\Frontend\\src\\assets",
+    "\\Frontend\\src\\assets\\imgs",
     "\\html y css"
   ],
-  "SelectedNode": "\\progreso_html",
+  "SelectedNode": "\\Frontend\\src\\app\\modulo-login\\modulo-login.component.html",
   "PreviewInSolutionExplorer": false
 }

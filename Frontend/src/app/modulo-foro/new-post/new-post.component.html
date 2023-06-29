@@ -1,16 +1,18 @@
 <link rel="stylesheet" href="new-post.component.css">
-<div style="text-align:center">
+<div class="cuadrito">
 <h1>Crear Post</h1>
 
 <div>
-  <label>Título</label><br>
+  <label>Título:</label>
   <input [(ngModel)]="title" placeholder="Título">
 </div>
 
 <div>
-  <label >Post</label><br>
+  <label>Post:</label>
   <textarea [(ngModel)]="content" placeholder="Contenido"></textarea>
 </div>
 
 <button (click)="createPost()">Crear</button>
 </div>
+
+

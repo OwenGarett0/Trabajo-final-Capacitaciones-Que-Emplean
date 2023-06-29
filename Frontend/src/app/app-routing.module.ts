@@ -15,12 +15,14 @@ const routes: Routes = [
   { path: '', component: ModuloInicio},
   { path: 'login', component: ModuloLogin},
   { path: 'register', component: ModuloRegistro },
-  { path: 'info', component: ModuloInfo, canActivate: [AuthGuard] },
+  { path: 'info', component: ModuloInfo, 
+ },
   {
     path: 'forum', component: ModuloForo, children: [
-      { path: 'a', component: ModuloListaHilos }, { path: 'hilo/:id', component: ModuloHilo }, { path: 'create', component: NewPost }
+      { path: '', component: ModuloListaHilos }, { path: 'hilo/:id', component: ModuloHilo }, { path: 'create', component: NewPost }
   ]},
-  { path: 'stats', component: ModuloEstadistica, canActivate: [AuthGuard] }
+  { path: 'stats', component: ModuloEstadistica, 
+}
 
   
   ];

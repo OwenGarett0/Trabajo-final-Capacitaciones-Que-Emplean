@@ -8,7 +8,6 @@ namespace Backend
 
         public int id {get; set;}
 
-        public int IdOpAnsw {get; set;}
 
     }
 }

@@ -20,7 +20,7 @@ export class PostService {
     return this.http.get<Post>(url);
   }
   createPost(title: string, content: string): Observable<Post> {
-    const thread: Post = { title, content, id:0  };
+    const thread: Post = { title, content, id: 0};
     return this.http.post<Post>(this.apiUrl, thread);
   }
 

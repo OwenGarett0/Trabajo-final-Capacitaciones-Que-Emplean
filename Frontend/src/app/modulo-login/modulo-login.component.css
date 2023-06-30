@@ -1,7 +1,11 @@
-body{
-    background-color:#4d82bc;
-    margin-top: 5%;
-    margin-left: 5%;
+body {
+  background-color: #4d82bc;
+  width: 101%;
+  height: 100%;
+  margin: -10px;
+  padding: 0px;
+  overflow-x: hidden;
+  min-height: 100vh
 }
 .color{
     background-color: #73a1d1;

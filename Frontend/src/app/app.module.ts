@@ -13,6 +13,8 @@ import { ModuloEstadistica } from './modulo-estadistica/modulo-estadistica.compo
 import { ModuloHilo } from './modulo-foro/modulo-hilo/modulo-hilo.component';
 import { ModuloListaHilos } from './modulo-foro/modulo-lista-hilos/modulo-lista-hilos.component';
 import { NewPost } from './modulo-foro/new-post/new-post.component';
+import { ModuloNewpass } from './modulo-newpass/modulo-newpass.component';
+import { KeyValuePipe } from '@angular/common';
 
 
 @NgModule({
@@ -27,12 +29,15 @@ import { NewPost } from './modulo-foro/new-post/new-post.component';
     ModuloHilo,
     ModuloListaHilos,
     NewPost,
+    ModuloNewpass,
+
   ],
   imports: [
     HttpClientModule,   
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    KeyValuePipe
   ],
   providers: [],
   bootstrap: [AppComponent]

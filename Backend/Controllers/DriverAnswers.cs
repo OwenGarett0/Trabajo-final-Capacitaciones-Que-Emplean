@@ -12,39 +12,44 @@ namespace Backend
     [Route("api/answers")]
     public class AnswerController : ControllerBase
     {
-        private readonly MySqlConnection connection;
+        private readonly string connectionString;
 
         public AnswerController()
         {
-            string connectionString = "server=localhost;database=tfcqe;uid=root;password=asddsa;";
-            connection = new MySqlConnection(connectionString);
+            connectionString = "server=localhost;database=tfcqe;uid=root;password=asddsa;";
+
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAnswer(int threadId)
+        public async Task<IActionResult> GetAnswers()
         {
             try
             {
-                var query = "SELECT * FROM answers";
-                var command = new MySqlCommand(query, connection);
-                var answers = new List<Answer>();
-                using (var reader = await command.ExecuteReaderAsync())
+                using (var connection = new MySqlConnection(connectionString))
                 {
-                    while (await reader.ReadAsync())
-                    {
-                        var answer = new Answer
-                        {
-                            id = reader.GetInt32("id"),
-                            idOP = reader.GetInt32("idOp"),
-                            Answ = reader.GetString("Answ"),
-                        };
+                    await connection.OpenAsync();
 
-                        answers.Add(answer);
+                    var query = "SELECT * FROM answers";
+                    var command = new MySqlCommand(query, connection);
+                    var answers = new List<Answer>();
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var answer = new Answer
+                            {
+                                id = reader.GetInt32("id"),
+                                idOP = reader.GetInt32("idOp"),
+                                Answ = reader.GetString("Answ"),
+                            };
+
+                            answers.Add(answer);
+                        }
+
                     }
 
+                    return Ok(answers);
                 }
-
-                return Ok(answers);
             }
             catch (Exception ex)
             {
@@ -52,13 +57,50 @@ namespace Backend
             }
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetAnswer(int id)
+        {
+            try
+            {
+                using (var connection = new MySqlConnection(connectionString))
+                {
+                    await connection.OpenAsync();
+
+                    var query = "SELECT * FROM answers WHERE id = @id";
+                    var command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@id", id);
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        if (await reader.ReadAsync())
+                        {
+                            var thread = new Answer
+                            {
+                                id = reader.GetInt32("id"),
+                                idOP = reader.GetInt32("idOp"),
+                                Answ = reader.GetString("Answ"),
+
+                            };
+
+                            return Ok(thread);
+                        }
+                    }
+                    return NotFound();
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error retrieving thread: {ex.Message}");
+            }
+        }
         [HttpPost]
         public async Task<IActionResult> NewAnswer(Answer respuesta)
         {
-            var insertQuery = "INSERT INTO respuestas (threadId, usuarioId, contenido) VALUES (@ThreadId, @UsuarioId, @Contenido)";
-            await connection.ExecuteAsync(insertQuery, respuesta);
-            return Ok();
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                var insertQuery = "INSERT INTO respuestas (threadId, usuarioId, contenido) VALUES (@ThreadId, @UsuarioId, @Contenido)";
+                await connection.ExecuteAsync(insertQuery, respuesta);
+                return Ok();
+            }
         }
-
     }
 }

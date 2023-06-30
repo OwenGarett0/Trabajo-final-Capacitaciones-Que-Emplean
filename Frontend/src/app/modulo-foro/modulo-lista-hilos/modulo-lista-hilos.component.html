@@ -5,18 +5,18 @@
 <link rel="stylesheet" href="modulo-lista-hilos.component.css">
 
 
-<div *ngFor="let post of post" > 
-    <div class="card text-white bg-primary mb-3" style="max-width: 35rem;">
-        <div class="card-header">{{post.title}}</div>
-          <div class="card-body">
-            <p class="card-text"> {{post.content}} </p>
-          </div>
+<div *ngFor="let post of threads">
+  <div class="card text-white bg-primary mb-3" style="max-width: 35rem;">
+    <div class="card-header">[{{post.id}}] {{post.title}}</div>
+    <div class="card-body">
+      <p class="card-text">{{post.content}}</p>
     </div>
-    <div class="cuadrito" *ngFor="let answer of answers">
-      <div class="card text-white bg-primary mb-3" style="max-width: 35rem;" >
-        <div class="card-body">
-          <p class="card-text">{{answer.content}} </p>
-        </div>
+  </div>
+  <div class="cuadrito" *ngIf="post.respuestas && post.respuestas.length > 0">
+    <div class="card text-white bg-primary mb-3" style="max-width: 35rem;">
+      <div class="card-body">
+        <p class="card-text" *ngFor="let respuesta of post.respuestas">{{post.respuestas[0]}}</p>
       </div>
     </div>
+  </div>
 </div>

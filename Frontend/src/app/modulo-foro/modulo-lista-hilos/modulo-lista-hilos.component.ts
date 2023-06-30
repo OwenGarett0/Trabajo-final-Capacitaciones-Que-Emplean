@@ -1,41 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../post.model';
 import { PostService } from '../../posts.service';
-import { Answer } from '../../answer.model'
+import { Answer } from '../../answer.model';
 import { AnswerService } from '../../answer.service';
 
 @Component({
-  selector: 'app-modulo-lista-hilos',
+  selector: 'app-thread-list',
   templateUrl: './modulo-lista-hilos.component.html',
   styleUrls: ['./modulo-lista-hilos.component.css']
 })
 export class ModuloListaHilos implements OnInit {
-  post: Post[];
-  answers: any[] = [];
-  constructor(private postService: PostService, private answerService: AnswerService) { }
+  threads: Post[];
+
+  constructor(private threadService: PostService, private answerService: AnswerService) { }
 
   ngOnInit(): void {
-    this.getPost();
+    this.getThreads();
   }
 
-  getPost(): void {
-    this.postService.getPosts()
-      .subscribe(post => {this.post = post;
-      for (const p of this.post){this.getAnswers(p.id);}
-                          });
-                  }
-  getAnswers(postId: number): void{
-    this.answerService.getRespuestas(postId).subscribe(answers =>{this.answers = answers;
-    });
+  getThreads(): void {
+    this.threadService.getPosts()
+      .subscribe(threads => {
+        this.threads = threads;
+        // Obtener las respuestas para cada hilo
+        for (const thread of this.threads) {
+          this.getRespuestas(thread.id);
+        }
+      });
   }
 
- 
-
-  deleteThread(id: number): void {
-    this.postService.deletePost(id)
-      .subscribe(() => {
-        // Realizar alguna acción después de eliminar el hilo, como recargar la lista de hilos
-        this.getPost();
+  getRespuestas(threadId: number): void {
+    this.answerService.getRespuestas(threadId)
+      .subscribe(respuestas => {
+        const thread = this.threads.find(t => t.id === threadId);
+        if (thread) {
+          thread.respuestas = Object.values(respuestas);
+        }
+        console.log(this.threads); // Verificar las respuestas recibidas
       });
   }
 }

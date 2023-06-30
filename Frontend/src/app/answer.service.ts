@@ -7,7 +7,7 @@ import { Answer } from './answer.model';
   providedIn: 'root'
 })
 export class AnswerService {
-  private apiUrl = 'http://localhost:3000/api/answers'; // Cambia la URL según tu configuración del backend
+  private apiUrl = 'https://localhost:7223/api/answers'; // Cambia la URL según tu configuración del backend
 
   constructor(private http: HttpClient) { }
 

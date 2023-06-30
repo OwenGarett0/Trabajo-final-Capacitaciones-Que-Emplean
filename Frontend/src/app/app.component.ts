@@ -14,21 +14,4 @@ export class AppComponent {
   goTo(route: string) {
     this.router.navigate([route])
   }
-
-  goToLogin() {
-    this.router.navigate(['/login']);
-  }
-  goToRegister() {
-    this.router.navigate(['/register']);
-  }
-  goToInfo() {
-    this.router.navigate(['/info'])
-  }
-  goToForum() {
-    this.router.navigate(['/forum'])
-  }
-  goToStats() {
-    this.router.navigate(['/stats'])
-  }
-
 }

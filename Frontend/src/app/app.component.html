@@ -12,11 +12,12 @@
     <div class="menu">
       <nav>
         <ul>
-          <li class="menu-centrado"><a (click)="goTo('/')">Inicio</a></li>
-          <li class="menu-centrado"><a (click)="goTo('/forum')">Foro</a></li>
-          <li class="menu-centrado"><a (click)="goTo('/info')">Sobre Nosotros</a></li>
-          <li class="menu-centrado"><a (click)="goTo('/register')">Registro</a></li>
-          <li class="menu-centrado"><a (click)="goTo('/login')">Login</a></li>
+          <li class="menu-centrado"><a (click)="goTo('/');">Inicio</a></li>
+          <li class="menu-centrado"><a (click)="goTo('/forum'); Forovisitas() ">Foro</a></li>
+          <li class="menu-centrado"><a (click)="goTo('/info');Aboutusvisitas() ">Sobre Nosotros</a></li>
+          <li class="menu-centrado"><a (click)="goTo('/register'); Registervisitas()">Registro</a></li>
+          <li class="menu-centrado"><a (click)="goTo('/login');Loginvisitas() ">Login</a></li>
+          <li class="menu-centrado"><a (click)="goTo('/stats');Statsvisitas() ">Estadistica</a></li>
         </ul>
       </nav>
     </div>

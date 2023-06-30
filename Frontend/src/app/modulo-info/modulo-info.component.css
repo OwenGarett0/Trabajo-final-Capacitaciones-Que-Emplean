@@ -14,11 +14,16 @@ body{
 .cuadradadito{
     background-color: #73a1d1;
     padding: 1%;
-    margin-top: 1%;
+    margin-top: 20%;
     margin-left: 30%;
     margin-right: 30%;
     margin-bottom: 1%;
     border-radius: 1%;
+}
+.imagen{
+    text-align: center;
+    margin-left: 45%;
+    margin-top: 25%;
 }
 .sangria{
     text-align: justify;

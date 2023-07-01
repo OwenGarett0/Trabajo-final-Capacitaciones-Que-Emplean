@@ -2,9 +2,9 @@ namespace Backend
 {
     public class Answer
     {
-        public string Answ {get; set;}
+        public string answ {get; set;}
 
-        public int idOP {get; set;}
+        public int idOp {get; set;}
 
         public int id {get; set;}
 

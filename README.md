@@ -24,11 +24,14 @@ Instrucciones de instalación:
 
 Clonar el repositorio
 
-Hostear la base de datos ("Trabajo-final-Capacitaciones-Que-Emplean\Base de datos\tfcqe.sql") con MySql (puerto predeterminado)
+
+Crear un schema llamado "tfcqe" en MySql
+
+Ejecutar el archivo "Trabajo-final-Capacitaciones-Que-Emplean\Base de datos\schema.sql" con MySql (puerto predeterminado (3306))
 
 Abrir la solución Backend.sln ("Trabajo-final-Capacitaciones-Que-Emplean\Backend\Backend.sln") con Visual Studio 2022
 
-Ejecutar el Proyecto (F5 en VS22)
+Ejecutar el Proyecto en el puerto 7223 (F5 en VS22)
 
 Abrir la carpeta Frontend desde una terminal ("Trabajo-final-Capacitaciones-Que-Emplean\Frontend")
 

@@ -16,8 +16,9 @@ export class AnswerService {
     return this.http.get<Answer[]>(url);
   }
 
-  crearRespuesta(respuesta: Answer): Observable<any> {
-    return this.http.post(this.apiUrl, respuesta);
+  crearRespuesta(a: Answer): Observable<any> {
+
+    return this.http.post(this.apiUrl, a);
   }
 
   // Implementa los demás métodos para actualizar y eliminar respuestas

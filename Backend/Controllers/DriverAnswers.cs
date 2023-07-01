@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 using System.Threading.Tasks;
 using System.Data;
+using System.Configuration;
 
 namespace Backend
 {
@@ -39,8 +40,8 @@ namespace Backend
                             var answer = new Answer
                             {
                                 id = reader.GetInt32("id"),
-                                idOP = reader.GetInt32("idOp"),
-                                Answ = reader.GetString("Answ"),
+                                idOp = reader.GetInt32("idOp"),
+                                answ = reader.GetString("Answ"),
                             };
 
                             answers.Add(answer);
@@ -66,30 +67,31 @@ namespace Backend
                 {
                     await connection.OpenAsync();
 
-                    var query = "SELECT * FROM answers WHERE id = @id";
+                    var query = "SELECT * FROM answers WHERE idOp = @id";
                     var command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@id", id);
+                    var answers = new List<Answer>(); // Lista de respuestas
                     using (var reader = await command.ExecuteReaderAsync())
                     {
-                        if (await reader.ReadAsync())
+                        while (await reader.ReadAsync())
                         {
-                            var thread = new Answer
+                            var answer = new Answer
                             {
                                 id = reader.GetInt32("id"),
-                                idOP = reader.GetInt32("idOp"),
-                                Answ = reader.GetString("Answ"),
-
+                                idOp = reader.GetInt32("idOp"),
+                                answ = reader.GetString("Answ"),
                             };
 
-                            return Ok(thread);
+                            answers.Add(answer); // Agregar respuesta a la lista
                         }
                     }
-                    return NotFound();
+
+                    return Ok(answers.ToArray()); // Devolver la lista de respuestas como array
                 }
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                return StatusCode(500, $"Error retrieving thread: {ex.Message}");
+                return StatusCode(500, ex.Message);
             }
         }
         [HttpPost]
@@ -97,7 +99,7 @@ namespace Backend
         {
             using (var connection = new MySqlConnection(connectionString))
             {
-                var insertQuery = "INSERT INTO respuestas (threadId, usuarioId, contenido) VALUES (@ThreadId, @UsuarioId, @Contenido)";
+                var insertQuery = "INSERT INTO answers (idOp, Answ) VALUES (@idOp, @Answ)";
                 await connection.ExecuteAsync(insertQuery, respuesta);
                 return Ok();
             }

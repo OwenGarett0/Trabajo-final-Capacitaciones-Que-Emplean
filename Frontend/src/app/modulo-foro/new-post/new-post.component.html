@@ -1,18 +1,20 @@
 <link rel="stylesheet" href="new-post.component.css">
-<div class="cuadrito">
-<h1>Crear Post</h1>
+<body>
+  <br><br><br><br><br><br><br><br>
+  <div class="cuadrito">
+    <h1>Crear Post</h1>
 
-<div>
-  <label>Título:</label>
-  <input [(ngModel)]="title" placeholder="Título">
-</div>
+    <div>
+      <label>Título:</label>
+      <input [(ngModel)]="title" placeholder="Título">
+    </div>
 
-<div>
-  <label>Post:</label>
-  <textarea [(ngModel)]="content" placeholder="Contenido"></textarea>
-</div>
+    <div>
+      <label>Post:</label>
+      <textarea [(ngModel)]="content" placeholder="Contenido"></textarea>
+    </div>
 
-<button (click)="createPost()">Crear</button>
-</div>
-
+    <button (click)="createPost()">Crear</button>
+  </div>
+</body>
 

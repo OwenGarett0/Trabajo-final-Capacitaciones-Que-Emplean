@@ -1,22 +1,37 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-<h1 class="color">Lista de Hilos</h1>
-
 <link rel="stylesheet" href="modulo-lista-hilos.component.css">
-
-
-<div *ngFor="let post of threads">
-  <div class="card text-white bg-primary mb-3" style="max-width: 35rem;">
-    <div class="card-header">[{{post.id}}] {{post.title}}</div>
-    <div class="card-body">
-      <p class="card-text">{{post.content}}</p>
-    </div>
+<body>
+  <br><br><br><br><br><br>
+  <div>
+    <button (click)="goNew()">Nuevo Post</button>
   </div>
-  <div class="cuadrito" *ngIf="post.respuestas && post.respuestas.length > 0">
+
+  <div>
+    <h1>Crear respuesta</h1>
+    <h3>Ingrese el ID del post a responder</h3>
+    <input [(ngModel)]="IDOP" placeholder="ID del post" />
+    <h3>Ingrese su respuesta</h3>
+    <input [(ngModel)]="CONTENT" placeholder="Respuesta" />
+    <button (click)="newAnswer()">Responder</button>
+  </div>
+
+
+  <div *ngFor="let post of threads">
     <div class="card text-white bg-primary mb-3" style="max-width: 35rem;">
+      <div class="card-header">[{{post.id}}] {{post.title}}</div>
       <div class="card-body">
-        <p class="card-text" *ngFor="let respuesta of post.respuestas">{{post.respuestas[0]}}</p>
+        <p class="card-text">{{post.content}}</p>
+      </div>
+    </div>
+    <div *ngIf="post.respuestas && post.respuestas.length > 0">
+      <div class="cuadrito" *ngFor="let respuesta of post.respuestas">
+        <div class="card text-white bg-primary mb-3" style="max-width: 35rem;">
+          <div class="card-body">
+            <p class="card-text">{{respuesta.answ}}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</body>

@@ -18,12 +18,12 @@ const routes: Routes = [
   { path: 'info', component: ModuloInfo },
   { path: 'newpass', component: ModuloNewpass},
   {
-    path: 'forum', component: ModuloForo
+    path: 'forum', component: ModuloForo, canActivate:[AuthGuard]
   , children: [
       { path: '', component: ModuloListaHilos }, { path: 'hilo/:id', component: ModuloHilo }, { path: 'create', component: NewPost }
   ]},
   {
-    path: 'stats', component: ModuloEstadistica,  
+    path: 'stats', component: ModuloEstadistica, canActivate: [AuthGuard]  
 }
 
   

@@ -3,6 +3,7 @@ import { Post } from '../../post.model';
 import { PostService } from '../../posts.service';
 import { Answer } from '../../answer.model';
 import { AnswerService } from '../../answer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-thread-list',
@@ -11,11 +12,32 @@ import { AnswerService } from '../../answer.service';
 })
 export class ModuloListaHilos implements OnInit {
   threads: Post[];
+  IDOP: number;
+  CONTENT: string;
 
-  constructor(private threadService: PostService, private answerService: AnswerService) { }
+  constructor(private threadService: PostService, private answerService: AnswerService, private router: Router) { }
 
   ngOnInit(): void {
     this.getThreads();
+  }
+
+  goNew() {
+    this.router.navigate(['forum/create'])
+  }
+
+  newAnswer(): void {
+    const c: Answer = {
+      idOp: this.IDOP, answ: this.CONTENT
+    }
+    this.answerService.crearRespuesta(c)
+      .subscribe(
+        () => {
+          console.log('ok');
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
   }
 
   getThreads(): void {
